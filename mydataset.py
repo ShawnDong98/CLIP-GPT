@@ -58,10 +58,6 @@ class MyTokenizer:
 
         return post_list_ids            
 
-
-    
-
-
     def decode(self, ids):
         return [self.itos[id_] for id_ in ids]
 
@@ -77,6 +73,9 @@ class MyTokenizer:
         import json
         with open(vocab_path, 'w', encoding='utf-8') as f:
             json.dump(self.stoi, f, ensure_ascii=False)
+
+    def get_vocab_size(self):
+        return len(self.stoi)
 
 
 class ImageCaptionDataset(Dataset):
